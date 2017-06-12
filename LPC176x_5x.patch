@@ -1,0 +1,1683 @@
+--- LPC176x5x_v0.2.svd	2017-06-12 10:36:16.167512418 -0400
++++ LPC176x5x_v0.2.svd	2017-06-08 16:35:59.040503214 -0400
+@@ -599,11 +599,8 @@
+ 			</fields>
+ 		</register>
+ 		<register>
+-			<dim>4</dim>
+-			<dimIncrement>0x4</dimIncrement>
+-			<dimIndex>0-3</dimIndex>
+-			<name>MR[%s]</name>
+-			<displayName>MR[%s]</displayName>
++			<name>MR0</name>
++			<displayName>MR0</displayName>
+ 			<description>Match Register 0. MR0 can be enabled through the MCR to reset the TC, stop both the TC and PC, and/or generate an interrupt every time MR0 matches the TC.</description>
+ 			<addressOffset>0x018</addressOffset>
+ 			<access>read-write</access>
+@@ -618,6 +615,54 @@
+ 			</fields>
+ 		</register>
+ 		<register>
++			<name>MR1</name>
++			<displayName>MR1</displayName>
++			<description>Match Register 1. MR1 can be enabled through the MCR to reset the TC, stop both the TC and PC, and/or generate an interrupt every time MR1 matches the TC.</description>
++			<addressOffset>0x01c</addressOffset>
++			<access>read-write</access>
++			<resetValue>0</resetValue>
++			<resetMask>0xFFFFFFFF</resetMask>
++			<fields>
++				<field>
++					<name>MATCH</name>
++					<description>Timer counter match value.</description>
++					<bitRange>[31:0]</bitRange>
++				</field>
++			</fields>
++		</register>
++		<register>
++			<name>MR2</name>
++			<displayName>MR2</displayName>
++			<description>Match Register 2. MR2 can be enabled through the MCR to reset the TC, stop both the TC and PC, and/or generate an interrupt every time MR2 matches the TC.</description>
++			<addressOffset>0x020</addressOffset>
++			<access>read-write</access>
++			<resetValue>0</resetValue>
++			<resetMask>0xFFFFFFFF</resetMask>
++			<fields>
++				<field>
++					<name>MATCH</name>
++					<description>Timer counter match value.</description>
++					<bitRange>[31:0]</bitRange>
++				</field>
++			</fields>
++		</register>
++		<register>
++			<name>MR3</name>
++			<displayName>MR3</displayName>
++			<description>Match Register 3. MR3 can be enabled through the MCR to reset the TC, stop both the TC and PC, and/or generate an interrupt every time MR3 matches the TC.</description>
++			<addressOffset>0x024</addressOffset>
++			<access>read-write</access>
++			<resetValue>0</resetValue>
++			<resetMask>0xFFFFFFFF</resetMask>
++			<fields>
++				<field>
++					<name>MATCH</name>
++					<description>Timer counter match value.</description>
++					<bitRange>[31:0]</bitRange>
++				</field>
++			</fields>
++		</register>
++		<register>
+ 			<name>CCR</name>
+ 			<description>Capture Control Register. The CCR controls which edges of the capture inputs are used to load the Capture Registers and whether or not an interrupt is generated when a capture takes place.</description>
+ 			<addressOffset>0x028</addressOffset>
+@@ -1269,12 +1314,12 @@
+ 							<value>0x3</value>
+ 						</enumeratedValue>
+ 						<enumeratedValue>
+-							<name>2A__RECEIVE_DATA_AV</name>
++							<name>2A_RECEIVE_DATA_AV</name>
+ 							<description>2a - Receive Data Available (RDA).</description>
+ 							<value>0x2</value>
+ 						</enumeratedValue>
+ 						<enumeratedValue>
+-							<name>2B__CHARACTER_TIME_</name>
++							<name>2B_CHARACTER_TIME_</name>
+ 							<description>2b - Character Time-out Indicator (CTI).</description>
+ 							<value>0x6</value>
+ 						</enumeratedValue>
+@@ -4002,14 +4047,8 @@
+ 			</fields>
+ 		</register>
+ 		<register>
+-			<dim>4</dim>
+-			<dimIncrement>0x4</dimIncrement>
+-			<dimIndex>0-3</dimIndex>
+-			<name>MR%s</name>
+-			
+-			<description>Match Register. Match registers
+-are continuously compared to the PWM counter in order to control PWM
+-output edges.</description>
++			<name>MR0</name>
++			<description>Match Register. Match registers are continuously compared to the PWM counter in order to control PWM output edges.</description>
+ 			<addressOffset>0x018</addressOffset>
+ 			<access>read-write</access>
+ 			<resetValue>0</resetValue>
+@@ -4023,6 +4062,51 @@
+ 			</fields>
+ 		</register>
+ 		<register>
++			<name>MR1</name>
++			<description>Match Register. Match registers are continuously compared to the PWM counter in order to control PWM output edges.</description>
++			<addressOffset>0x01c</addressOffset>
++			<access>read-write</access>
++			<resetValue>0</resetValue>
++			<resetMask>0xFFFFFFFF</resetMask>
++			<fields>
++				<field>
++					<name>MATCH</name>
++					<description>Timer counter match value.</description>
++					<bitRange>[31:0]</bitRange>
++				</field>
++			</fields>
++		</register>
++		<register>
++			<name>MR2</name>
++			<description>Match Register. Match registers are continuously compared to the PWM counter in order to control PWM output edges.</description>
++			<addressOffset>0x020</addressOffset>
++			<access>read-write</access>
++			<resetValue>0</resetValue>
++			<resetMask>0xFFFFFFFF</resetMask>
++			<fields>
++				<field>
++					<name>MATCH</name>
++					<description>Timer counter match value.</description>
++					<bitRange>[31:0]</bitRange>
++				</field>
++			</fields>
++		</register>
++		<register>
++			<name>MR3</name>
++			<description>Match Register. Match registers are continuously compared to the PWM counter in order to control PWM output edges.</description>
++			<addressOffset>0x024</addressOffset>
++			<access>read-write</access>
++			<resetValue>0</resetValue>
++			<resetMask>0xFFFFFFFF</resetMask>
++			<fields>
++				<field>
++					<name>MATCH</name>
++					<description>Timer counter match value.</description>
++					<bitRange>[31:0]</bitRange>
++				</field>
++			</fields>
++		</register>
++		<register>
+ 			<name>CCR</name>
+ 			<description>Capture Control Register. The CCR controls which edges of the capture inputs are used to load the Capture Registers and whether or not an interrupt is generated for a capture event.</description>
+ 			<addressOffset>0x028</addressOffset>
+@@ -4735,396 +4819,392 @@
+ 		</register>
+ 	</registers>
+ </peripheral>
+-
+-		
+-		<peripheral>
+-			<name>I2C0</name>
+-			<description>I2C bus interface</description>
+-			<groupName>I2C</groupName>
+-			<baseAddress>0x4001C000</baseAddress>
+-			<addressBlock>
+-				<offset>0</offset>
+-				<size>0xFFF</size>
+-				<usage>registers</usage>
+-			</addressBlock>
+-			<interrupt>
+-				<name>I2C0</name>
+-				<value>10</value>
+-
+-			</interrupt>
+-			<registers>
+-				<register>
+-					<name>CONSET</name>
+-					<description>I2C Control Set Register. When a one is written to a bit of this register, the corresponding bit in the I2C control register is set. Writing a zero has no effect on the corresponding bit in the I2C control register.</description>
+-					<addressOffset>0x000</addressOffset>
+-					<access>read-write</access>
+-					<resetValue>0x00</resetValue>
+-					<resetMask>0xFFFFFFFF</resetMask>
+-					<fields>
+-						<field>
+-							<name>RESERVED</name>
+-							<description>Reserved. User software should not write ones to reserved bits. The value read from a reserved bit is not defined.</description>
+-							<bitRange>[1:0]</bitRange>
+-						</field>
+-						<field>
+-							<name>AA</name>
+-							<description>Assert acknowledge flag.</description>
+-							<bitRange>[2:2]</bitRange>
+-						</field>
+-						<field>
+-							<name>SI</name>
+-							<description>I2C interrupt flag.</description>
+-							<bitRange>[3:3]</bitRange>
+-						</field>
+-						<field>
+-							<name>STO</name>
+-							<description>STOP flag.</description>
+-							<bitRange>[4:4]</bitRange>
+-						</field>
+-						<field>
+-							<name>STA</name>
+-							<description>START flag.</description>
+-							<bitRange>[5:5]</bitRange>
+-						</field>
+-						<field>
+-							<name>I2EN</name>
+-							<description>I2C interface enable.</description>
+-							<bitRange>[6:6]</bitRange>
+-						</field>
+-						<field>
+-							<name>RESERVED</name>
+-							<description>Reserved. The value read from a reserved bit is not defined.</description>
+-							<bitRange>[31:7]</bitRange>
+-						</field>
+-					</fields>
+-				</register>
+-				<register>
+-					<name>STAT</name>
+-					<description>I2C Status Register. During I2C operation, this register provides detailed status codes that allow software to determine the next action needed.</description>
+-					<addressOffset>0x004</addressOffset>
+-					<access>read-only</access>
+-					<resetValue>0xF8</resetValue>
+-					<resetMask>0xFFFFFFFF</resetMask>
+-					<fields>
+-						<field>
+-							<name>RESERVED</name>
+-							<description>These bits are unused and are always 0.</description>
+-							<bitRange>[2:0]</bitRange>
+-						</field>
+-						<field>
+-							<name>Status</name>
+-							<description>These bits give the actual status information about the I 2C interface.</description>
+-							<bitRange>[7:3]</bitRange>
+-						</field>
+-						<field>
+-							<name>RESERVED</name>
+-							<description>Reserved. The value read from a reserved bit is not defined.</description>
+-							<bitRange>[31:8]</bitRange>
+-						</field>
+-					</fields>
+-				</register>
+-				<register>
+-					<name>DAT</name>
+-					<description>I2C Data Register. During master or slave transmit mode, data to be transmitted is written to this register. During master or slave receive mode, data that has been received may be read from this register.</description>
+-					<addressOffset>0x008</addressOffset>
+-					<access>read-write</access>
+-					<resetValue>0x00</resetValue>
+-					<resetMask>0xFFFFFFFF</resetMask>
+-					<fields>
+-						<field>
+-							<name>Data</name>
+-							<description>This register holds data values that have been received or are to be transmitted.</description>
+-							<bitRange>[7:0]</bitRange>
+-						</field>
+-						<field>
+-							<name>RESERVED</name>
+-							<description>Reserved. The value read from a reserved bit is not defined.</description>
+-							<bitRange>[31:8]</bitRange>
+-						</field>
+-					</fields>
+-				</register>
+-				<register>
+-					<name>ADR0</name>
+-					<description>I2C Slave Address Register 0. Contains the 7-bit slave address for operation of the I2C interface in slave mode, and is not used in master mode. The least significant bit determines whether a slave responds to the General Call address.</description>
+-					<addressOffset>0x00C</addressOffset>
+-					<access>read-write</access>
+-					<resetValue>0x00</resetValue>
+-					<resetMask>0xFFFFFFFF</resetMask>
+-					<fields>
+-						<field>
+-							<name>GC</name>
+-							<description>General Call enable bit.</description>
+-							<bitRange>[0:0]</bitRange>
+-						</field>
+-						<field>
+-							<name>Address</name>
+-							<description>The I2C device address for slave mode.</description>
+-							<bitRange>[7:1]</bitRange>
+-						</field>
+-						<field>
+-							<name>RESERVED</name>
+-							<description>Reserved. The value read from a reserved bit is not defined.</description>
+-							<bitRange>[31:8]</bitRange>
+-						</field>
+-					</fields>
+-				</register>
+-				<register>
++<peripheral>
++	<name>I2C0</name>
++	<description>I2C bus interface</description>
++	<groupName>I2C</groupName>
++	<baseAddress>0x4001C000</baseAddress>
++	<addressBlock>
++		<offset>0</offset>
++		<size>0xFFF</size>
++		<usage>registers</usage>
++	</addressBlock>
++	<interrupt>
++		<name>I2C0</name>
++		<value>10</value>
++	</interrupt>
++	<registers>
++		<register>
++			<name>CONSET</name>
++			<description>I2C Control Set Register. When a one is written to a bit of this register, the corresponding bit in the I2C control register is set. Writing a zero has no effect on the corresponding bit in the I2C control register.</description>
++			<addressOffset>0x000</addressOffset>
++			<access>read-write</access>
++			<resetValue>0x00</resetValue>
++			<resetMask>0xFFFFFFFF</resetMask>
++			<fields>
++				<field>
++					<name>RESERVED</name>
++					<description>Reserved. User software should not write ones to reserved bits. The value read from a reserved bit is not defined.</description>
++					<bitRange>[1:0]</bitRange>
++				</field>
++				<field>
++					<name>AA</name>
++					<description>Assert acknowledge flag.</description>
++					<bitRange>[2:2]</bitRange>
++				</field>
++				<field>
++					<name>SI</name>
++					<description>I2C interrupt flag.</description>
++					<bitRange>[3:3]</bitRange>
++				</field>
++				<field>
++					<name>STO</name>
++					<description>STOP flag.</description>
++					<bitRange>[4:4]</bitRange>
++				</field>
++				<field>
++					<name>STA</name>
++					<description>START flag.</description>
++					<bitRange>[5:5]</bitRange>
++				</field>
++				<field>
++					<name>I2EN</name>
++					<description>I2C interface enable.</description>
++					<bitRange>[6:6]</bitRange>
++				</field>
++				<field>
++					<name>RESERVED</name>
++					<description>Reserved. The value read from a reserved bit is not defined.</description>
++					<bitRange>[31:7]</bitRange>
++				</field>
++			</fields>
++		</register>
++		<register>
++			<name>STAT</name>
++			<description>I2C Status Register. During I2C operation, this register provides detailed status codes that allow software to determine the next action needed.</description>
++			<addressOffset>0x004</addressOffset>
++			<access>read-only</access>
++			<resetValue>0xF8</resetValue>
++			<resetMask>0xFFFFFFFF</resetMask>
++			<fields>
++				<field>
++					<name>RESERVED</name>
++					<description>These bits are unused and are always 0.</description>
++					<bitRange>[2:0]</bitRange>
++				</field>
++				<field>
++					<name>Status</name>
++					<description>These bits give the actual status information about the I 2C interface.</description>
++					<bitRange>[7:3]</bitRange>
++				</field>
++				<field>
++					<name>RESERVED</name>
++					<description>Reserved. The value read from a reserved bit is not defined.</description>
++					<bitRange>[31:8]</bitRange>
++				</field>
++			</fields>
++		</register>
++		<register>
++			<name>DAT</name>
++			<description>I2C Data Register. During master or slave transmit mode, data to be transmitted is written to this register. During master or slave receive mode, data that has been received may be read from this register.</description>
++			<addressOffset>0x008</addressOffset>
++			<access>read-write</access>
++			<resetValue>0x00</resetValue>
++			<resetMask>0xFFFFFFFF</resetMask>
++			<fields>
++				<field>
++					<name>Data</name>
++					<description>This register holds data values that have been received or are to be transmitted.</description>
++					<bitRange>[7:0]</bitRange>
++				</field>
++				<field>
++					<name>RESERVED</name>
++					<description>Reserved. The value read from a reserved bit is not defined.</description>
++					<bitRange>[31:8]</bitRange>
++				</field>
++			</fields>
++		</register>
++		<register>
++			<name>ADR0</name>
++			<description>I2C Slave Address Register 0. Contains the 7-bit slave address for operation of the I2C interface in slave mode, and is not used in master mode. The least significant bit determines whether a slave responds to the General Call address.</description>
++			<addressOffset>0x00C</addressOffset>
++			<access>read-write</access>
++			<resetValue>0x00</resetValue>
++			<resetMask>0xFFFFFFFF</resetMask>
++			<fields>
++				<field>
++					<name>GC</name>
++					<description>General Call enable bit.</description>
++					<bitRange>[0:0]</bitRange>
++				</field>
++				<field>
++					<name>Address</name>
++					<description>The I2C device address for slave mode.</description>
++					<bitRange>[7:1]</bitRange>
++				</field>
++				<field>
++					<name>RESERVED</name>
++					<description>Reserved. The value read from a reserved bit is not defined.</description>
++					<bitRange>[31:8]</bitRange>
++				</field>
++			</fields>
++		</register>
++		<register>
++			<name>SCLH</name>
++			<description>SCH Duty Cycle Register High Half Word. Determines the high time of the I2C clock.</description>
++			<addressOffset>0x010</addressOffset>
++			<access>read-write</access>
++			<resetValue>0x04</resetValue>
++			<resetMask>0xFFFFFFFF</resetMask>
++			<fields>
++				<field>
+ 					<name>SCLH</name>
+-					<description>SCH Duty Cycle Register High Half Word. Determines the high time of the I2C clock.</description>
+-					<addressOffset>0x010</addressOffset>
+-					<access>read-write</access>
+-					<resetValue>0x04</resetValue>
+-					<resetMask>0xFFFFFFFF</resetMask>
+-					<fields>
+-						<field>
+-							<name>SCLH</name>
+-							<description>Count for SCL HIGH time period selection.</description>
+-							<bitRange>[15:0]</bitRange>
+-						</field>
+-						<field>
+-							<name>RESERVED</name>
+-							<description>Reserved. The value read from a reserved bit is not defined.</description>
+-							<bitRange>[31:16]</bitRange>
+-						</field>
+-					</fields>
+-				</register>
+-				<register>
++					<description>Count for SCL HIGH time period selection.</description>
++					<bitRange>[15:0]</bitRange>
++				</field>
++				<field>
++					<name>RESERVED</name>
++					<description>Reserved. The value read from a reserved bit is not defined.</description>
++					<bitRange>[31:16]</bitRange>
++				</field>
++			</fields>
++		</register>
++		<register>
++			<name>SCLL</name>
++			<description>SCL Duty Cycle Register Low Half Word. Determines the low time of the I2C clock. SCLL and SCLH together determine the clock frequency generated by an I2C master and certain times used in slave mode.</description>
++			<addressOffset>0x014</addressOffset>
++			<access>read-write</access>
++			<resetValue>0x04</resetValue>
++			<resetMask>0xFFFFFFFF</resetMask>
++			<fields>
++				<field>
+ 					<name>SCLL</name>
+-					<description>SCL Duty Cycle Register Low Half Word. Determines the low time of the I2C clock. SCLL and SCLH together determine the clock frequency generated by an I2C master and certain times used in slave mode.</description>
+-					<addressOffset>0x014</addressOffset>
+-					<access>read-write</access>
+-					<resetValue>0x04</resetValue>
+-					<resetMask>0xFFFFFFFF</resetMask>
+-					<fields>
+-						<field>
+-							<name>SCLL</name>
+-							<description>Count for SCL low time period selection.</description>
+-							<bitRange>[15:0]</bitRange>
+-						</field>
+-						<field>
+-							<name>RESERVED</name>
+-							<description>Reserved. The value read from a reserved bit is not defined.</description>
+-							<bitRange>[31:16]</bitRange>
+-						</field>
+-					</fields>
+-				</register>
+-				<register>
+-					<name>CONCLR</name>
+-					<description>I2C Control Clear Register. When a one is written to a bit of this register, the corresponding bit in the I2C control register is cleared. Writing a zero has no effect on the corresponding bit in the I2C control register.</description>
+-					<addressOffset>0x018</addressOffset>
+-					<access>write-only</access>
+-					<resetValue>0</resetValue>
+-					<resetMask>0x00000000</resetMask>
+-					<fields>
+-						<field>
+-							<name>RESERVED</name>
+-							<description>Reserved. User software should not write ones to reserved bits. The value read from a reserved bit is not defined.</description>
+-							<bitRange>[1:0]</bitRange>
+-						</field>
+-						<field>
+-							<name>AAC</name>
+-							<description>Assert acknowledge Clear bit.</description>
+-							<bitRange>[2:2]</bitRange>
+-						</field>
+-						<field>
+-							<name>SIC</name>
+-							<description>I2C interrupt Clear bit.</description>
+-							<bitRange>[3:3]</bitRange>
+-						</field>
+-						<field>
+-							<name>RESERVED</name>
+-							<description>Reserved. User software should not write ones to reserved bits. The value read from a reserved bit is not defined.</description>
+-							<bitRange>[4:4]</bitRange>
+-						</field>
+-						<field>
+-							<name>STAC</name>
+-							<description>START flag Clear bit.</description>
+-							<bitRange>[5:5]</bitRange>
+-						</field>
+-						<field>
+-							<name>I2ENC</name>
+-							<description>I2C interface Disable bit.</description>
+-							<bitRange>[6:6]</bitRange>
+-						</field>
+-						<field>
+-							<name>RESERVED</name>
+-							<description>Reserved. User software should not write ones to reserved bits. The value read from a reserved bit is not defined.</description>
+-							<bitRange>[7:7]</bitRange>
+-						</field>
+-						<field>
+-							<name>RESERVED</name>
+-							<description>Reserved. The value read from a reserved bit is not defined.</description>
+-							<bitRange>[31:8]</bitRange>
+-						</field>
+-					</fields>
+-				</register>
+-				<register>
+-					<name>MMCTRL</name>
+-					<description>Monitor mode control register.</description>
+-					<addressOffset>0x01C</addressOffset>
+-					<access>read-write</access>
+-					<resetValue>0x00</resetValue>
+-					<resetMask>0xFFFFFFFF</resetMask>
+-					<fields>
+-						<field>
+-							<name>MM_ENA</name>
+-							<description>Monitor mode enable.</description>
+-							<bitRange>[0:0]</bitRange>
+-							<enumeratedValues>
+-								<name>ENUM</name>
+-								<enumeratedValue>
+-									<name>MONITOR_MODE_DISABLE</name>
+-									<description>Monitor mode disabled.</description>
+-									<value>0</value>
+-								</enumeratedValue>
+-								<enumeratedValue>
+-									<name>THE_I_2C_MODULE_WILL</name>
+-									<description>The I 2C module will enter monitor mode. In this mode the SDA output will be forced high. This will prevent the I2C module from outputting data of any kind (including ACK) onto the I2C data bus. Depending on the state of the ENA_SCL bit, the output may be also forced high, preventing the module from having control over the I2C clock line.</description>
+-									<value>1</value>
+-								</enumeratedValue>
+-							</enumeratedValues>
+-						</field>
+-						<field>
+-							<name>ENA_SCL</name>
+-							<description>SCL output enable.</description>
+-							<bitRange>[1:1]</bitRange>
+-							<enumeratedValues>
+-								<name>ENUM</name>
+-								<enumeratedValue>
+-									<name>WHEN_THIS_BIT_IS_CLE</name>
+-									<description>When this bit is cleared to 0, the SCL output will be forced high when the module is in monitor mode. As described above, this will prevent the module from having any control over the I2C clock line.</description>
+-									<value>0</value>
+-								</enumeratedValue>
+-								<enumeratedValue>
+-									<name>WHEN_THIS_BIT_IS_SET</name>
+-									<description>When this bit is set, the I2C module may exercise the same control over the clock line that it would in normal operation. This means that, acting as a slave peripheral, the I2C module can stretch the clock line (hold it low) until it has had time to respond to an I2C interrupt.[1]</description>
+-									<value>1</value>
+-								</enumeratedValue>
+-							</enumeratedValues>
+-						</field>
+-						<field>
+-							<name>MATCH_ALL</name>
+-							<description>Select interrupt register match.</description>
+-							<bitRange>[2:2]</bitRange>
+-							<enumeratedValues>
+-								<name>ENUM</name>
+-								<enumeratedValue>
+-									<name>WHEN_THIS_BIT_IS_CLE</name>
+-									<description>When this bit is cleared, an interrupt will only be generated when a match occurs to one of the (up-to) four address registers described above.   That is, the module will respond as a normal slave as far as address-recognition is concerned.</description>
+-									<value>0</value>
+-								</enumeratedValue>
+-								<enumeratedValue>
+-									<name>WHEN_THIS_BIT_IS_SET</name>
+-									<description>When this bit is set to 1 and the I2C is in monitor mode, an interrupt will be generated on ANY address received. This will enable the part to monitor all traffic on the bus.</description>
+-									<value>1</value>
+-								</enumeratedValue>
+-							</enumeratedValues>
+-						</field>
+-						<field>
+-							<name>RESERVED</name>
+-							<description>Reserved. The value read from reserved bits is not defined.</description>
+-							<bitRange>[31:3]</bitRange>
+-							
+-						</field>
+-					</fields>
+-				</register>
+-				<register>
+-					<dim>3</dim>
+-					<dimIncrement>0x4</dimIncrement>
+-					<dimIndex>1-3</dimIndex>
+-					<name>ADR%s</name>
+-					<description>I2C Slave Address Register. Contains the 7-bit slave address for operation of the I2C interface in slave mode, and is not used in master mode. The least significant bit determines whether a slave responds to the General Call address.</description>
+-					<addressOffset>0x020</addressOffset>
+-					<access>read-write</access>
+-					<resetValue>0x00</resetValue>
+-					<resetMask>0xFFFFFFFF</resetMask>
+-					<fields>
+-						<field>
+-							<name>GC</name>
+-							<description>General Call enable bit.</description>
+-							<bitRange>[0:0]</bitRange>
+-						</field>
+-						<field>
+-							<name>Address</name>
+-							<description>The I2C device address for slave mode.</description>
+-							<bitRange>[7:1]</bitRange>
+-						</field>
+-						<field>
+-							<name>RESERVED</name>
+-							<description>Reserved. The value read from a reserved bit is not defined.</description>
+-							<bitRange>[31:8]</bitRange>
+-						</field>
+-					</fields>
+-				</register>
+-				<register>
+-					<name>DATA_BUFFER</name>
+-					<description>Data buffer register. The contents of the 8 MSBs of the DAT shift register will be transferred to the DATA_BUFFER automatically after every nine bits (8 bits of data plus ACK or NACK) has been received on the bus.</description>
+-					<addressOffset>0x02C</addressOffset>
+-					<access>read-only</access>
+-					<resetValue>0x00</resetValue>
+-					<resetMask>0xFFFFFFFF</resetMask>
+-					<fields>
+-						<field>
+-							<name>Data</name>
+-							<description>This register holds contents of the 8 MSBs of the DAT shift register.</description>
+-							<bitRange>[7:0]</bitRange>
+-						</field>
+-						<field>
+-							<name>RESERVED</name>
+-							<description>Reserved. The value read from a reserved bit is not defined.</description>
+-							<bitRange>[31:8]</bitRange>
+-						</field>
+-					</fields>
+-				</register>
+-				<register>
+-					<dim>4</dim>
+-					<dimIncrement>0x4</dimIncrement>
+-					<dimIndex>0-3</dimIndex>
+-					<name>MASK[%s]</name>
+-					<displayName>MASK[%s]</displayName>
+-					<description>I2C Slave address mask register</description>
+-					<addressOffset>0x030</addressOffset>
+-					<access>read-write</access>
+-					<resetValue>0x00</resetValue>
+-					<resetMask>0xFFFFFFFF</resetMask>
+-					<fields>
+-						<field>
+-							<name>RESERVED</name>
+-							<description>Reserved. User software should not write ones to reserved bits. This bit reads always back as 0.</description>
+-							<bitRange>[0:0]</bitRange>
+-						</field>
+-						<field>
+-							<name>MASK</name>
+-							<description>Mask bits.</description>
+-							<bitRange>[7:1]</bitRange>
+-						</field>
+-						<field>
+-							<name>RESERVED</name>
+-							<description>Reserved. The value read from a reserved bit is not defined.</description>
+-							<bitRange>[31:8]</bitRange>
+-						</field>
+-					</fields>
+-				</register>
+-			</registers>
+-		</peripheral>
+-		<peripheral>
++					<description>Count for SCL low time period selection.</description>
++					<bitRange>[15:0]</bitRange>
++				</field>
++				<field>
++					<name>RESERVED</name>
++					<description>Reserved. The value read from a reserved bit is not defined.</description>
++					<bitRange>[31:16]</bitRange>
++				</field>
++			</fields>
++		</register>
++		<register>
++			<name>CONCLR</name>
++			<description>I2C Control Clear Register. When a one is written to a bit of this register, the corresponding bit in the I2C control register is cleared. Writing a zero has no effect on the corresponding bit in the I2C control register.</description>
++			<addressOffset>0x018</addressOffset>
++			<access>write-only</access>
++			<resetValue>0</resetValue>
++			<resetMask>0x00000000</resetMask>
++			<fields>
++				<field>
++					<name>RESERVED</name>
++					<description>Reserved. User software should not write ones to reserved bits. The value read from a reserved bit is not defined.</description>
++					<bitRange>[1:0]</bitRange>
++				</field>
++				<field>
++					<name>AAC</name>
++					<description>Assert acknowledge Clear bit.</description>
++					<bitRange>[2:2]</bitRange>
++				</field>
++				<field>
++					<name>SIC</name>
++					<description>I2C interrupt Clear bit.</description>
++					<bitRange>[3:3]</bitRange>
++				</field>
++				<field>
++					<name>RESERVED</name>
++					<description>Reserved. User software should not write ones to reserved bits. The value read from a reserved bit is not defined.</description>
++					<bitRange>[4:4]</bitRange>
++				</field>
++				<field>
++					<name>STAC</name>
++					<description>START flag Clear bit.</description>
++					<bitRange>[5:5]</bitRange>
++				</field>
++				<field>
++					<name>I2ENC</name>
++					<description>I2C interface Disable bit.</description>
++					<bitRange>[6:6]</bitRange>
++				</field>
++				<field>
++					<name>RESERVED</name>
++					<description>Reserved. User software should not write ones to reserved bits. The value read from a reserved bit is not defined.</description>
++					<bitRange>[7:7]</bitRange>
++				</field>
++				<field>
++					<name>RESERVED</name>
++					<description>Reserved. The value read from a reserved bit is not defined.</description>
++					<bitRange>[31:8]</bitRange>
++				</field>
++			</fields>
++		</register>
++		<register>
++			<name>MMCTRL</name>
++			<description>Monitor mode control register.</description>
++			<addressOffset>0x01C</addressOffset>
++			<access>read-write</access>
++			<resetValue>0x00</resetValue>
++			<resetMask>0xFFFFFFFF</resetMask>
++			<fields>
++				<field>
++					<name>MM_ENA</name>
++					<description>Monitor mode enable.</description>
++					<bitRange>[0:0]</bitRange>
++					<enumeratedValues>
++						<name>ENUM</name>
++						<enumeratedValue>
++							<name>MONITOR_MODE_DISABLE</name>
++							<description>Monitor mode disabled.</description>
++							<value>0</value>
++						</enumeratedValue>
++						<enumeratedValue>
++							<name>THE_I_2C_MODULE_WILL</name>
++							<description>The I 2C module will enter monitor mode. In this mode the SDA output will be forced high. This will prevent the I2C module from outputting data of any kind (including ACK) onto the I2C data bus. Depending on the state of the ENA_SCL bit, the output may be also forced high, preventing the module from having control over the I2C clock line.</description>
++							<value>1</value>
++						</enumeratedValue>
++					</enumeratedValues>
++				</field>
++				<field>
++					<name>ENA_SCL</name>
++					<description>SCL output enable.</description>
++					<bitRange>[1:1]</bitRange>
++					<enumeratedValues>
++						<name>ENUM</name>
++						<enumeratedValue>
++							<name>WHEN_THIS_BIT_IS_CLE</name>
++							<description>When this bit is cleared to 0, the SCL output will be forced high when the module is in monitor mode. As described above, this will prevent the module from having any control over the I2C clock line.</description>
++							<value>0</value>
++						</enumeratedValue>
++						<enumeratedValue>
++							<name>WHEN_THIS_BIT_IS_SET</name>
++							<description>When this bit is set, the I2C module may exercise the same control over the clock line that it would in normal operation. This means that, acting as a slave peripheral, the I2C module can stretch the clock line (hold it low) until it has had time to respond to an I2C interrupt.[1]</description>
++							<value>1</value>
++						</enumeratedValue>
++					</enumeratedValues>
++				</field>
++				<field>
++					<name>MATCH_ALL</name>
++					<description>Select interrupt register match.</description>
++					<bitRange>[2:2]</bitRange>
++					<enumeratedValues>
++						<name>ENUM</name>
++						<enumeratedValue>
++							<name>WHEN_THIS_BIT_IS_CLE</name>
++							<description>When this bit is cleared, an interrupt will only be generated when a match occurs to one of the (up-to) four address registers described above.   That is, the module will respond as a normal slave as far as address-recognition is concerned.</description>
++							<value>0</value>
++						</enumeratedValue>
++						<enumeratedValue>
++							<name>WHEN_THIS_BIT_IS_SET</name>
++							<description>When this bit is set to 1 and the I2C is in monitor mode, an interrupt will be generated on ANY address received. This will enable the part to monitor all traffic on the bus.</description>
++							<value>1</value>
++						</enumeratedValue>
++					</enumeratedValues>
++				</field>
++				<field>
++					<name>RESERVED</name>
++					<description>Reserved. The value read from reserved bits is not defined.</description>
++					<bitRange>[31:3]</bitRange>
++					
++				</field>
++			</fields>
++		</register>
++		<register>
++			<dim>3</dim>
++			<dimIncrement>0x4</dimIncrement>
++			<dimIndex>1-3</dimIndex>
++			<name>ADR%s</name>
++			<description>I2C Slave Address Register. Contains the 7-bit slave address for operation of the I2C interface in slave mode, and is not used in master mode. The least significant bit determines whether a slave responds to the General Call address.</description>
++			<addressOffset>0x020</addressOffset>
++			<access>read-write</access>
++			<resetValue>0x00</resetValue>
++			<resetMask>0xFFFFFFFF</resetMask>
++			<fields>
++				<field>
++					<name>GC</name>
++					<description>General Call enable bit.</description>
++					<bitRange>[0:0]</bitRange>
++				</field>
++				<field>
++					<name>Address</name>
++					<description>The I2C device address for slave mode.</description>
++					<bitRange>[7:1]</bitRange>
++				</field>
++				<field>
++					<name>RESERVED</name>
++					<description>Reserved. The value read from a reserved bit is not defined.</description>
++					<bitRange>[31:8]</bitRange>
++				</field>
++			</fields>
++		</register>
++		<register>
++			<name>DATA_BUFFER</name>
++			<description>Data buffer register. The contents of the 8 MSBs of the DAT shift register will be transferred to the DATA_BUFFER automatically after every nine bits (8 bits of data plus ACK or NACK) has been received on the bus.</description>
++			<addressOffset>0x02C</addressOffset>
++			<access>read-only</access>
++			<resetValue>0x00</resetValue>
++			<resetMask>0xFFFFFFFF</resetMask>
++			<fields>
++				<field>
++					<name>Data</name>
++					<description>This register holds contents of the 8 MSBs of the DAT shift register.</description>
++					<bitRange>[7:0]</bitRange>
++				</field>
++				<field>
++					<name>RESERVED</name>
++					<description>Reserved. The value read from a reserved bit is not defined.</description>
++					<bitRange>[31:8]</bitRange>
++				</field>
++			</fields>
++		</register>
++		<register>
++			<dim>4</dim>
++			<dimIncrement>0x4</dimIncrement>
++			<dimIndex>0-3</dimIndex>
++			<name>MASK[%s]</name>
++			<displayName>MASK[%s]</displayName>
++			<description>I2C Slave address mask register</description>
++			<addressOffset>0x030</addressOffset>
++			<access>read-write</access>
++			<resetValue>0x00</resetValue>
++			<resetMask>0xFFFFFFFF</resetMask>
++			<fields>
++				<field>
++					<name>RESERVED</name>
++					<description>Reserved. User software should not write ones to reserved bits. This bit reads always back as 0.</description>
++					<bitRange>[0:0]</bitRange>
++				</field>
++				<field>
++					<name>MASK</name>
++					<description>Mask bits.</description>
++					<bitRange>[7:1]</bitRange>
++				</field>
++				<field>
++					<name>RESERVED</name>
++					<description>Reserved. The value read from a reserved bit is not defined.</description>
++					<bitRange>[31:8]</bitRange>
++				</field>
++			</fields>
++		</register>
++	</registers>
++</peripheral>
++<peripheral>
+ 	<name>SPI</name>
+ 	<description>SPI </description>
+ 	<groupName>SPI</groupName>
+ 	<baseAddress>0x40020000</baseAddress>
+ 	<addressBlock>
+-	<offset>0x0</offset>
+-	<size>0xFFF</size>
+-	<usage>registers</usage>
++		<offset>0x0</offset>
++		<size>0xFFF</size>
++		<usage>registers</usage>
+ 	</addressBlock>
+ 	<interrupt>
+-	<name>SPI</name>
+-	<value>13</value>
++		<name>SPI</name>
++		<value>13</value>
+ 	</interrupt>
+-
+ 	<registers>
+ 		<register>
+-			<name>CR</name>
++			<name>SPICR</name>
+ 			<description>SPI Control Register. This register controls the operation of the SPI.</description>
+ 			<addressOffset>0x000</addressOffset>
+ 			<access>read-write</access>
+@@ -5241,7 +5321,7 @@
+ 					</enumeratedValues>
+ 				</field>
+ 				<field>
+-					<name>BITS</name>
++					<name>BITST</name>
+ 					<description>When bit 2 of this register is 1, this field controls the number of bits per transfer:</description>
+ 					<bitRange>[11:8]</bitRange>
+ 					<enumeratedValues>
+@@ -5297,7 +5377,6 @@
+ 					<name>RESERVED</name>
+ 					<description>Reserved, user software should not write ones to reserved bits. The value read from a reserved bit is not defined.</description>
+ 					<bitRange>[31:12]</bitRange>
+-					
+ 				</field>
+ 			</fields>
+ 		</register>
+@@ -5392,8 +5471,6 @@
+ 				</field>
+ 			</fields>
+ 		</register>
+-		
+-		
+ 		<register>
+ 			<name>INT</name>
+ 			<description>SPI Interrupt Flag. This register contains the interrupt flag for the SPI interface.</description>
+@@ -5421,7 +5498,7 @@
+ 		</register>
+ 	</registers>
+ </peripheral>
+-		<peripheral>
++<peripheral>
+ 	<name>RTC</name>
+ 	<description> Real Time Clock (RTC)  </description>
+ 	<groupName>RTC</groupName>
+@@ -5476,12 +5553,12 @@
+ 					<enumeratedValues>
+ 					<name>ENUM</name>
+ 						<enumeratedValue>
+-							<name>THE_TIME_COUNTERS_AR</name>
++							<name>THE_TIME_COUNTERS_ARE_ENABLED</name>
+ 							<description>The time counters are enabled.</description>
+ 							<value>1</value>
+ 						</enumeratedValue>
+ 						<enumeratedValue>
+-							<name>THE_TIME_COUNTERS_AR</name>
++							<name>THE_TIME_COUNTERS_ARE_DISABLED</name>
+ 							<description>The time counters are disabled so that they may be initialized.</description>
+ 							<value>0</value>
+ 						</enumeratedValue>
+@@ -5518,12 +5595,12 @@
+ 					<enumeratedValues>
+ 					<name>ENUM</name>
+ 						<enumeratedValue>
+-							<name>THE_CALIBRATION_COUN</name>
++							<name>THE_CALIBRATION_COUNTER_IS_DISABLED</name>
+ 							<description>The calibration counter is disabled and reset to zero.</description>
+ 							<value>1</value>
+ 						</enumeratedValue>
+ 						<enumeratedValue>
+-							<name>THE_CALIBRATION_COUN</name>
++							<name>THE_CALIBRATION_COUNTER_IS_ENABLED</name>
+ 							<description>The calibration counter is enabled and counting, using the 1 Hz clock. When the calibration counter is equal to the value of the CALIBRATION register, the counter resets and repeats counting up to the value of the CALIBRATION register. See Section 30.6.4.2 and  Section 30.6.5.</description>
+ 							<value>0</value>
+ 						</enumeratedValue>
+@@ -9969,7 +10046,7 @@
+ 						<value>0x0</value>													
+ 					</enumeratedValue>														
+ 					<enumeratedValue>														
+-						<name>DISABLED</name>													
++						<name>REPEATER</name>
+ 						<description>Disabled. Repeater. P0.6 pin has repeater mode enabled.</description>													
+ 						<value>0x1</value>													
+ 					</enumeratedValue>														
+@@ -13925,7 +14002,7 @@
+ 	</interrupt>
+ 	<registers>
+ 		<register>
+-			<name>CR</name>
++			<name>ADCR</name>
+ 			<description>A/D Control Register. The ADCR register must be written to select the operating mode before A/D conversion can occur.</description>
+ 			<addressOffset>0x000</addressOffset>
+ 			<access>read-write</access>
+@@ -15449,199 +15526,56 @@
+ 					<name>RI</name>
+ 					<description>Receive Interrupt. This bit is set whenever the RBS bit in CANxSR and the RIE bit in CANxIER are both 1, indicating that a new message was received and stored in the Receive Buffer. The Receive Interrupt Bit is not cleared upon a read access to the Interrupt Register. Giving the Command Release Receive Buffer will clear RI temporarily. If there is another message available within the Receive Buffer after the release command, RI is set again. Otherwise RI remains cleared.</description>
+ 					<bitRange>[0:0]</bitRange>
+-					<enumeratedValues>
+-					<name>ENUM</name>
+-						<enumeratedValue>
+-							<name>RESET</name>
+-							<description>Reset</description>
+-							<value>0</value>
+-						</enumeratedValue>
+-						<enumeratedValue>
+-							<name>SET</name>
+-							<description>Set</description>
+-							<value>1</value>
+-						</enumeratedValue>
+-					</enumeratedValues>
+ 				</field>
+ 				<field>
+ 					<name>TI1</name>
+ 					<description>Transmit Interrupt 1. This bit is set when the TBS1 bit in CANxSR goes from 0 to 1 (whenever a message out of TXB1 was successfully transmitted or aborted), indicating that Transmit buffer 1 is available, and the TIE1 bit in CANxIER is 1.</description>
+ 					<bitRange>[1:1]</bitRange>
+-					<enumeratedValues>
+-					<name>ENUM</name>
+-						<enumeratedValue>
+-							<name>RESET</name>
+-							<description>Reset</description>
+-							<value>0</value>
+-						</enumeratedValue>
+-						<enumeratedValue>
+-							<name>SET</name>
+-							<description>Set</description>
+-							<value>1</value>
+-						</enumeratedValue>
+-					</enumeratedValues>
+ 				</field>
+ 				<field>
+ 					<name>EI</name>
+ 					<description>Error Warning Interrupt. This bit is set on every change (set or clear) of either the Error Status or Bus Status bit in CANxSR and the EIE bit bit is set within the Interrupt Enable Register at the time of the change.</description>
+ 					<bitRange>[2:2]</bitRange>
+-					<enumeratedValues>
+-					<name>ENUM</name>
+-						<enumeratedValue>
+-							<name>RESET</name>
+-							<description>Reset</description>
+-							<value>0</value>
+-						</enumeratedValue>
+-						<enumeratedValue>
+-							<name>SET</name>
+-							<description>Set</description>
+-							<value>1</value>
+-						</enumeratedValue>
+-					</enumeratedValues>
+ 				</field>
+ 				<field>
+ 					<name>DOI</name>
+ 					<description>Data Overrun Interrupt. This bit is set when the DOS bit in CANxSR goes from 0 to 1 and the DOIE bit in CANxIER is 1.</description>
+ 					<bitRange>[3:3]</bitRange>
+-					<enumeratedValues>
+-					<name>ENUM</name>
+-						<enumeratedValue>
+-							<name>RESET</name>
+-							<description>Reset</description>
+-							<value>0</value>
+-						</enumeratedValue>
+-						<enumeratedValue>
+-							<name>SET</name>
+-							<description>Set</description>
+-							<value>1</value>
+-						</enumeratedValue>
+-					</enumeratedValues>
+ 				</field>
+ 				<field>
+ 					<name>WUI</name>
+ 					<description>Wake-Up Interrupt. This bit is set if the CAN controller is sleeping and bus activity is detected and the WUIE bit in CANxIER is 1. A Wake-Up Interrupt is also generated if the CPU tries to set the Sleep bit while the CAN controller is involved in bus activities or a CAN Interrupt is pending. The WUI flag can also get asserted when the according enable bit WUIE is not set. In this case a Wake-Up Interrupt does not get asserted.</description>
+ 					<bitRange>[4:4]</bitRange>
+-					<enumeratedValues>
+-					<name>ENUM</name>
+-						<enumeratedValue>
+-							<name>RESET</name>
+-							<description>Reset</description>
+-							<value>0</value>
+-						</enumeratedValue>
+-						<enumeratedValue>
+-							<name>SET</name>
+-							<description>Set</description>
+-							<value>1</value>
+-						</enumeratedValue>
+-					</enumeratedValues>
+ 				</field>
+ 				<field>
+ 					<name>EPI</name>
+ 					<description>Error Passive Interrupt. This bit is set if the EPIE bit in CANxIER is 1, and the CAN controller switches between Error Passive and Error Active mode in either direction. This is the case when the CAN Controller has reached the Error Passive Status (at least one error counter exceeds the CAN protocol defined level of 127) or if the CAN Controller is in Error Passive Status and enters the Error Active Status again.</description>
+ 					<bitRange>[5:5]</bitRange>
+-					<enumeratedValues>
+-					<name>ENUM</name>
+-						<enumeratedValue>
+-							<name>RESET</name>
+-							<description>Reset</description>
+-							<value>0</value>
+-						</enumeratedValue>
+-						<enumeratedValue>
+-							<name>SET</name>
+-							<description>Set</description>
+-							<value>1</value>
+-						</enumeratedValue>
+-					</enumeratedValues>
+ 				</field>
+ 				<field>
+ 					<name>ALI</name>
+ 					<description>Arbitration Lost Interrupt. This bit is set if the ALIE bit in CANxIER is 1, and the CAN controller loses arbitration while attempting to transmit. In this case the CAN node becomes a receiver.</description>
+ 					<bitRange>[6:6]</bitRange>
+-					<enumeratedValues>
+-					<name>ENUM</name>
+-						<enumeratedValue>
+-							<name>RESET</name>
+-							<description>Reset</description>
+-							<value>0</value>
+-						</enumeratedValue>
+-						<enumeratedValue>
+-							<name>SET</name>
+-							<description>Set</description>
+-							<value>1</value>
+-						</enumeratedValue>
+-					</enumeratedValues>
+ 				</field>
+ 				<field>
+ 					<name>BEI</name>
+ 					<description>Bus Error Interrupt -- this bit is set if the BEIE bit in CANxIER is 1, and the CAN controller detects an error on the bus.</description>
+ 					<bitRange>[7:7]</bitRange>
+-					<enumeratedValues>
+-					<name>ENUM</name>
+-						<enumeratedValue>
+-							<name>RESET</name>
+-							<description>Reset</description>
+-							<value>0</value>
+-						</enumeratedValue>
+-						<enumeratedValue>
+-							<name>SET</name>
+-							<description>Set</description>
+-							<value>1</value>
+-						</enumeratedValue>
+-					</enumeratedValues>
+ 				</field>
+ 				<field>
+ 					<name>IDI</name>
+ 					<description>ID Ready Interrupt -- this bit is set if the IDIE bit in CANxIER is 1, and a CAN Identifier has been received (a message was successfully transmitted or aborted). This bit is set whenever a message was successfully transmitted or aborted and the IDIE bit is set in the IER register.</description>
+ 					<bitRange>[8:8]</bitRange>
+-					<enumeratedValues>
+-					<name>ENUM</name>
+-						<enumeratedValue>
+-							<name>RESET</name>
+-							<description>Reset</description>
+-							<value>0</value>
+-						</enumeratedValue>
+-						<enumeratedValue>
+-							<name>SET</name>
+-							<description>Set</description>
+-							<value>1</value>
+-						</enumeratedValue>
+-					</enumeratedValues>
+ 				</field>
+ 				<field>
+ 					<name>TI2</name>
+ 					<description>Transmit Interrupt 2. This bit is set when the TBS2 bit in CANxSR goes from 0 to 1 (whenever a message out of TXB2 was successfully transmitted or aborted), indicating that Transmit buffer 2 is available, and the TIE2 bit in CANxIER is 1.</description>
+ 					<bitRange>[9:9]</bitRange>
+-					<enumeratedValues>
+-					<name>ENUM</name>
+-						<enumeratedValue>
+-							<name>RESET</name>
+-							<description>Reset</description>
+-							<value>0</value>
+-						</enumeratedValue>
+-						<enumeratedValue>
+-							<name>SET</name>
+-							<description>Set</description>
+-							<value>1</value>
+-						</enumeratedValue>
+-					</enumeratedValues>
+ 				</field>
+ 				<field>
+ 					<name>TI3</name>
+ 					<description>Transmit Interrupt 3. This bit is set when the TBS3 bit in CANxSR goes from 0 to 1 (whenever a message out of TXB3 was successfully transmitted or aborted), indicating that Transmit buffer 3 is available, and the TIE3 bit in CANxIER is 1.</description>
+ 					<bitRange>[10:10]</bitRange>
+-					<enumeratedValues>
+-					<name>ENUM</name>
+-						<enumeratedValue>
+-							<name>RESET</name>
+-							<description>Reset</description>
+-							<value>0</value>
+-						</enumeratedValue>
+-						<enumeratedValue>
+-							<name>SET</name>
+-							<description>Set</description>
+-							<value>1</value>
+-						</enumeratedValue>
+-					</enumeratedValues>
+ 				</field>
+ 				<field>
+ 					<name>RESERVED</name>
+@@ -15662,12 +15596,12 @@
+ 					<enumeratedValues>
+ 					<name>ENUM</name>
+ 						<enumeratedValue>
+-							<name>ERROR_OCCURRED_DURIN</name>
++							<name>ERROR_OCCURRED_DURING_TRANSMITTING</name>
+ 							<description>Error occurred during transmitting.</description>
+ 							<value>0</value>
+ 						</enumeratedValue>
+ 						<enumeratedValue>
+-							<name>ERROR_OCCURRED_DURIN</name>
++							<name>ERROR_OCCURRED_DURING_RECEIVING</name>
+ 							<description>Error occurred during receiving.</description>
+ 							<value>1</value>
+ 						</enumeratedValue>
+@@ -16444,7 +16378,7 @@
+ 			</addressBlock>
+ 			<registers>
+ 				<register>
+-					<name>CR</name>
++					<name>DACR</name>
+ 					<description>D/A Converter Register. This register contains the digital value to be converted to analog and a power control bit.</description>
+ 					<addressOffset>0x000</addressOffset>
+ 					<access>read-write</access>
+@@ -25701,12 +25635,8 @@
+ 			</fields>
+ 		</register>
+ 		<register>
+-			<dim>8</dim>
+-			<dimIncrement>0x20</dimIncrement>
+-			<dimIndex>0-7</dimIndex>
+-			<name>CONFIG%s</name>
+-			
+-			<description>DMA Channel 0 Configuration Register[1]</description>
++			<name>CONFIG0</name>
++			<description>DMA Channel 0 Configuration Register</description>
+ 			<addressOffset>0x110</addressOffset>
+ 			<access>read-write</access>
+ 			<resetValue>0</resetValue>
+@@ -25764,12 +25694,429 @@
+ 				</field>
+ 			</fields>
+ 		</register>
++		<register>
++			<name>CONFIG1</name>
++			<description>DMA Channel 1 Configuration Register</description>
++			<addressOffset>0x120</addressOffset>
++			<access>read-write</access>
++			<resetValue>0</resetValue>
++			<resetMask>0xFFFFFFFF</resetMask>
++			<fields>
++				<field>
++					<name>E</name>
++					<description>Channel enable. Reading this bit indicates whether a channel is currently enabled or disabled: 0 = channel disabled. 1 = channel enabled. The Channel Enable bit status can also be found by reading the DMACEnbldChns Register. A channel is enabled by setting this bit. A channel can be disabled by clearing the Enable bit. This causes the current AHB transfer (if one is in progress) to complete and the channel is then disabled. Any data in the FIFO of the relevant channel is lost. Restarting the channel by setting the Channel Enable bit has unpredictable effects, the channel must be fully re-initialized. The channel is also disabled, and Channel Enable bit cleared, when the last LLI is reached, the DMA transfer is completed, or if a channel error is encountered. If a channel must be disabled without losing data in the FIFO, the Halt bit must be set so that further DMA requests are ignored. The Active bit must then be polled until it reaches 0, indicating that there is no data left in the FIFO. Finally, the Channel Enable bit can be cleared.</description>
++					<bitRange>[0:0]</bitRange>
++				</field>
++				<field>
++					<name>SRCPERIPHERAL</name>
++					<description>Source peripheral. This value selects the DMA source request peripheral. This field is ignored if the source of the transfer is from memory. See Table 672 for peripheral identification.</description>
++					<bitRange>[5:1]</bitRange>
++				</field>
++				<field>
++					<name>DESTPERIPHERAL</name>
++					<description>Destination peripheral. This value selects the DMA destination request peripheral. This field is ignored if the destination of the transfer is to memory. See Table 672 for peripheral identification.</description>
++					<bitRange>[10:6]</bitRange>
++				</field>
++				<field>
++					<name>TRANSFERTYPE</name>
++					<description>This value indicates the type of transfer and specifies the flow controller. The transfer type can be memory-to-memory, memory-to-peripheral, peripheral-to-memory, or peripheral-to-peripheral. Flow can be controlled by the DMA controller, the source peripheral, or the destination peripheral. Refer to Table 694 for the encoding of this field.</description>
++					<bitRange>[13:11]</bitRange>
++				</field>
++				<field>
++					<name>IE</name>
++					<description>Interrupt error mask. When cleared, this bit masks out the error interrupt of the relevant channel.</description>
++					<bitRange>[14:14]</bitRange>
++				</field>
++				<field>
++					<name>ITC</name>
++					<description>Terminal count interrupt mask. When cleared, this bit masks out the terminal count interrupt of the relevant channel.</description>
++					<bitRange>[15:15]</bitRange>
++				</field>
++				<field>
++					<name>L</name>
++					<description>Lock. When set, this bit enables locked transfers. This information is not used in the LPC178x/177x.</description>
++					<bitRange>[16:16]</bitRange>
++				</field>
++				<field>
++					<name>A</name>
++					<description>Active: 0 = there is no data in the FIFO of the channel. 1 = the channel FIFO has data. This value can be used with the Halt and Channel Enable bits to cleanly disable a DMA channel. This is a read-only bit.</description>
++					<bitRange>[17:17]</bitRange>
++				</field>
++				<field>
++					<name>H</name>
++					<description>Halt: 0 = enable DMA requests. 1 = ignore further source DMA requests. The contents of the channel FIFO are drained. This value can be used with the Active and Channel Enable bits to cleanly disable a DMA channel.</description>
++					<bitRange>[18:18]</bitRange>
++				</field>
++				<field>
++					<name>RESERVED</name>
++					<description>Reserved. Read value is undefined, only zero should be written.</description>
++					<bitRange>[31:19]</bitRange>
++				</field>
++			</fields>
++		</register>
++		<register>
++			<name>CONFIG2</name>
++			<description>DMA Channel 2 Configuration Register</description>
++			<addressOffset>0x150</addressOffset>
++			<access>read-write</access>
++			<resetValue>0</resetValue>
++			<resetMask>0xFFFFFFFF</resetMask>
++			<fields>
++				<field>
++					<name>E</name>
++					<description>Channel enable. Reading this bit indicates whether a channel is currently enabled or disabled: 0 = channel disabled. 1 = channel enabled. The Channel Enable bit status can also be found by reading the DMACEnbldChns Register. A channel is enabled by setting this bit. A channel can be disabled by clearing the Enable bit. This causes the current AHB transfer (if one is in progress) to complete and the channel is then disabled. Any data in the FIFO of the relevant channel is lost. Restarting the channel by setting the Channel Enable bit has unpredictable effects, the channel must be fully re-initialized. The channel is also disabled, and Channel Enable bit cleared, when the last LLI is reached, the DMA transfer is completed, or if a channel error is encountered. If a channel must be disabled without losing data in the FIFO, the Halt bit must be set so that further DMA requests are ignored. The Active bit must then be polled until it reaches 0, indicating that there is no data left in the FIFO. Finally, the Channel Enable bit can be cleared.</description>
++					<bitRange>[0:0]</bitRange>
++				</field>
++				<field>
++					<name>SRCPERIPHERAL</name>
++					<description>Source peripheral. This value selects the DMA source request peripheral. This field is ignored if the source of the transfer is from memory. See Table 672 for peripheral identification.</description>
++					<bitRange>[5:1]</bitRange>
++				</field>
++				<field>
++					<name>DESTPERIPHERAL</name>
++					<description>Destination peripheral. This value selects the DMA destination request peripheral. This field is ignored if the destination of the transfer is to memory. See Table 672 for peripheral identification.</description>
++					<bitRange>[10:6]</bitRange>
++				</field>
++				<field>
++					<name>TRANSFERTYPE</name>
++					<description>This value indicates the type of transfer and specifies the flow controller. The transfer type can be memory-to-memory, memory-to-peripheral, peripheral-to-memory, or peripheral-to-peripheral. Flow can be controlled by the DMA controller, the source peripheral, or the destination peripheral. Refer to Table 694 for the encoding of this field.</description>
++					<bitRange>[13:11]</bitRange>
++				</field>
++				<field>
++					<name>IE</name>
++					<description>Interrupt error mask. When cleared, this bit masks out the error interrupt of the relevant channel.</description>
++					<bitRange>[14:14]</bitRange>
++				</field>
++				<field>
++					<name>ITC</name>
++					<description>Terminal count interrupt mask. When cleared, this bit masks out the terminal count interrupt of the relevant channel.</description>
++					<bitRange>[15:15]</bitRange>
++				</field>
++				<field>
++					<name>L</name>
++					<description>Lock. When set, this bit enables locked transfers. This information is not used in the LPC178x/177x.</description>
++					<bitRange>[16:16]</bitRange>
++				</field>
++				<field>
++					<name>A</name>
++					<description>Active: 0 = there is no data in the FIFO of the channel. 1 = the channel FIFO has data. This value can be used with the Halt and Channel Enable bits to cleanly disable a DMA channel. This is a read-only bit.</description>
++					<bitRange>[17:17]</bitRange>
++				</field>
++				<field>
++					<name>H</name>
++					<description>Halt: 0 = enable DMA requests. 1 = ignore further source DMA requests. The contents of the channel FIFO are drained. This value can be used with the Active and Channel Enable bits to cleanly disable a DMA channel.</description>
++					<bitRange>[18:18]</bitRange>
++				</field>
++				<field>
++					<name>RESERVED</name>
++					<description>Reserved. Read value is undefined, only zero should be written.</description>
++					<bitRange>[31:19]</bitRange>
++				</field>
++			</fields>
++		</register>
++		<register>
++			<name>CONFIG3</name>
++			<description>DMA Channel 3 Configuration Register</description>
++			<addressOffset>0x170</addressOffset>
++			<access>read-write</access>
++			<resetValue>0</resetValue>
++			<resetMask>0xFFFFFFFF</resetMask>
++			<fields>
++				<field>
++					<name>E</name>
++					<description>Channel enable. Reading this bit indicates whether a channel is currently enabled or disabled: 0 = channel disabled. 1 = channel enabled. The Channel Enable bit status can also be found by reading the DMACEnbldChns Register. A channel is enabled by setting this bit. A channel can be disabled by clearing the Enable bit. This causes the current AHB transfer (if one is in progress) to complete and the channel is then disabled. Any data in the FIFO of the relevant channel is lost. Restarting the channel by setting the Channel Enable bit has unpredictable effects, the channel must be fully re-initialized. The channel is also disabled, and Channel Enable bit cleared, when the last LLI is reached, the DMA transfer is completed, or if a channel error is encountered. If a channel must be disabled without losing data in the FIFO, the Halt bit must be set so that further DMA requests are ignored. The Active bit must then be polled until it reaches 0, indicating that there is no data left in the FIFO. Finally, the Channel Enable bit can be cleared.</description>
++					<bitRange>[0:0]</bitRange>
++				</field>
++				<field>
++					<name>SRCPERIPHERAL</name>
++					<description>Source peripheral. This value selects the DMA source request peripheral. This field is ignored if the source of the transfer is from memory. See Table 672 for peripheral identification.</description>
++					<bitRange>[5:1]</bitRange>
++				</field>
++				<field>
++					<name>DESTPERIPHERAL</name>
++					<description>Destination peripheral. This value selects the DMA destination request peripheral. This field is ignored if the destination of the transfer is to memory. See Table 672 for peripheral identification.</description>
++					<bitRange>[10:6]</bitRange>
++				</field>
++				<field>
++					<name>TRANSFERTYPE</name>
++					<description>This value indicates the type of transfer and specifies the flow controller. The transfer type can be memory-to-memory, memory-to-peripheral, peripheral-to-memory, or peripheral-to-peripheral. Flow can be controlled by the DMA controller, the source peripheral, or the destination peripheral. Refer to Table 694 for the encoding of this field.</description>
++					<bitRange>[13:11]</bitRange>
++				</field>
++				<field>
++					<name>IE</name>
++					<description>Interrupt error mask. When cleared, this bit masks out the error interrupt of the relevant channel.</description>
++					<bitRange>[14:14]</bitRange>
++				</field>
++				<field>
++					<name>ITC</name>
++					<description>Terminal count interrupt mask. When cleared, this bit masks out the terminal count interrupt of the relevant channel.</description>
++					<bitRange>[15:15]</bitRange>
++				</field>
++				<field>
++					<name>L</name>
++					<description>Lock. When set, this bit enables locked transfers. This information is not used in the LPC178x/177x.</description>
++					<bitRange>[16:16]</bitRange>
++				</field>
++				<field>
++					<name>A</name>
++					<description>Active: 0 = there is no data in the FIFO of the channel. 1 = the channel FIFO has data. This value can be used with the Halt and Channel Enable bits to cleanly disable a DMA channel. This is a read-only bit.</description>
++					<bitRange>[17:17]</bitRange>
++				</field>
++				<field>
++					<name>H</name>
++					<description>Halt: 0 = enable DMA requests. 1 = ignore further source DMA requests. The contents of the channel FIFO are drained. This value can be used with the Active and Channel Enable bits to cleanly disable a DMA channel.</description>
++					<bitRange>[18:18]</bitRange>
++				</field>
++				<field>
++					<name>RESERVED</name>
++					<description>Reserved. Read value is undefined, only zero should be written.</description>
++					<bitRange>[31:19]</bitRange>
++				</field>
++			</fields>
++		</register>
++		<register>
++			<name>CONFIG4</name>
++			<description>DMA Channel 4 Configuration Register</description>
++			<addressOffset>0x190</addressOffset>
++			<access>read-write</access>
++			<resetValue>0</resetValue>
++			<resetMask>0xFFFFFFFF</resetMask>
++			<fields>
++				<field>
++					<name>E</name>
++					<description>Channel enable. Reading this bit indicates whether a channel is currently enabled or disabled: 0 = channel disabled. 1 = channel enabled. The Channel Enable bit status can also be found by reading the DMACEnbldChns Register. A channel is enabled by setting this bit. A channel can be disabled by clearing the Enable bit. This causes the current AHB transfer (if one is in progress) to complete and the channel is then disabled. Any data in the FIFO of the relevant channel is lost. Restarting the channel by setting the Channel Enable bit has unpredictable effects, the channel must be fully re-initialized. The channel is also disabled, and Channel Enable bit cleared, when the last LLI is reached, the DMA transfer is completed, or if a channel error is encountered. If a channel must be disabled without losing data in the FIFO, the Halt bit must be set so that further DMA requests are ignored. The Active bit must then be polled until it reaches 0, indicating that there is no data left in the FIFO. Finally, the Channel Enable bit can be cleared.</description>
++					<bitRange>[0:0]</bitRange>
++				</field>
++				<field>
++					<name>SRCPERIPHERAL</name>
++					<description>Source peripheral. This value selects the DMA source request peripheral. This field is ignored if the source of the transfer is from memory. See Table 672 for peripheral identification.</description>
++					<bitRange>[5:1]</bitRange>
++				</field>
++				<field>
++					<name>DESTPERIPHERAL</name>
++					<description>Destination peripheral. This value selects the DMA destination request peripheral. This field is ignored if the destination of the transfer is to memory. See Table 672 for peripheral identification.</description>
++					<bitRange>[10:6]</bitRange>
++				</field>
++				<field>
++					<name>TRANSFERTYPE</name>
++					<description>This value indicates the type of transfer and specifies the flow controller. The transfer type can be memory-to-memory, memory-to-peripheral, peripheral-to-memory, or peripheral-to-peripheral. Flow can be controlled by the DMA controller, the source peripheral, or the destination peripheral. Refer to Table 694 for the encoding of this field.</description>
++					<bitRange>[13:11]</bitRange>
++				</field>
++				<field>
++					<name>IE</name>
++					<description>Interrupt error mask. When cleared, this bit masks out the error interrupt of the relevant channel.</description>
++					<bitRange>[14:14]</bitRange>
++				</field>
++				<field>
++					<name>ITC</name>
++					<description>Terminal count interrupt mask. When cleared, this bit masks out the terminal count interrupt of the relevant channel.</description>
++					<bitRange>[15:15]</bitRange>
++				</field>
++				<field>
++					<name>L</name>
++					<description>Lock. When set, this bit enables locked transfers. This information is not used in the LPC178x/177x.</description>
++					<bitRange>[16:16]</bitRange>
++				</field>
++				<field>
++					<name>A</name>
++					<description>Active: 0 = there is no data in the FIFO of the channel. 1 = the channel FIFO has data. This value can be used with the Halt and Channel Enable bits to cleanly disable a DMA channel. This is a read-only bit.</description>
++					<bitRange>[17:17]</bitRange>
++				</field>
++				<field>
++					<name>H</name>
++					<description>Halt: 0 = enable DMA requests. 1 = ignore further source DMA requests. The contents of the channel FIFO are drained. This value can be used with the Active and Channel Enable bits to cleanly disable a DMA channel.</description>
++					<bitRange>[18:18]</bitRange>
++				</field>
++				<field>
++					<name>RESERVED</name>
++					<description>Reserved. Read value is undefined, only zero should be written.</description>
++					<bitRange>[31:19]</bitRange>
++				</field>
++			</fields>
++		</register>
++		<register>
++			<name>CONFIG5</name>
++			<description>DMA Channel 5 Configuration Register</description>
++			<addressOffset>0x1B0</addressOffset>
++			<access>read-write</access>
++			<resetValue>0</resetValue>
++			<resetMask>0xFFFFFFFF</resetMask>
++			<fields>
++				<field>
++					<name>E</name>
++					<description>Channel enable. Reading this bit indicates whether a channel is currently enabled or disabled: 0 = channel disabled. 1 = channel enabled. The Channel Enable bit status can also be found by reading the DMACEnbldChns Register. A channel is enabled by setting this bit. A channel can be disabled by clearing the Enable bit. This causes the current AHB transfer (if one is in progress) to complete and the channel is then disabled. Any data in the FIFO of the relevant channel is lost. Restarting the channel by setting the Channel Enable bit has unpredictable effects, the channel must be fully re-initialized. The channel is also disabled, and Channel Enable bit cleared, when the last LLI is reached, the DMA transfer is completed, or if a channel error is encountered. If a channel must be disabled without losing data in the FIFO, the Halt bit must be set so that further DMA requests are ignored. The Active bit must then be polled until it reaches 0, indicating that there is no data left in the FIFO. Finally, the Channel Enable bit can be cleared.</description>
++					<bitRange>[0:0]</bitRange>
++				</field>
++				<field>
++					<name>SRCPERIPHERAL</name>
++					<description>Source peripheral. This value selects the DMA source request peripheral. This field is ignored if the source of the transfer is from memory. See Table 672 for peripheral identification.</description>
++					<bitRange>[5:1]</bitRange>
++				</field>
++				<field>
++					<name>DESTPERIPHERAL</name>
++					<description>Destination peripheral. This value selects the DMA destination request peripheral. This field is ignored if the destination of the transfer is to memory. See Table 672 for peripheral identification.</description>
++					<bitRange>[10:6]</bitRange>
++				</field>
++				<field>
++					<name>TRANSFERTYPE</name>
++					<description>This value indicates the type of transfer and specifies the flow controller. The transfer type can be memory-to-memory, memory-to-peripheral, peripheral-to-memory, or peripheral-to-peripheral. Flow can be controlled by the DMA controller, the source peripheral, or the destination peripheral. Refer to Table 694 for the encoding of this field.</description>
++					<bitRange>[13:11]</bitRange>
++				</field>
++				<field>
++					<name>IE</name>
++					<description>Interrupt error mask. When cleared, this bit masks out the error interrupt of the relevant channel.</description>
++					<bitRange>[14:14]</bitRange>
++				</field>
++				<field>
++					<name>ITC</name>
++					<description>Terminal count interrupt mask. When cleared, this bit masks out the terminal count interrupt of the relevant channel.</description>
++					<bitRange>[15:15]</bitRange>
++				</field>
++				<field>
++					<name>L</name>
++					<description>Lock. When set, this bit enables locked transfers. This information is not used in the LPC178x/177x.</description>
++					<bitRange>[16:16]</bitRange>
++				</field>
++				<field>
++					<name>A</name>
++					<description>Active: 0 = there is no data in the FIFO of the channel. 1 = the channel FIFO has data. This value can be used with the Halt and Channel Enable bits to cleanly disable a DMA channel. This is a read-only bit.</description>
++					<bitRange>[17:17]</bitRange>
++				</field>
++				<field>
++					<name>H</name>
++					<description>Halt: 0 = enable DMA requests. 1 = ignore further source DMA requests. The contents of the channel FIFO are drained. This value can be used with the Active and Channel Enable bits to cleanly disable a DMA channel.</description>
++					<bitRange>[18:18]</bitRange>
++				</field>
++				<field>
++					<name>RESERVED</name>
++					<description>Reserved. Read value is undefined, only zero should be written.</description>
++					<bitRange>[31:19]</bitRange>
++				</field>
++			</fields>
++		</register>
++		<register>
++			<name>CONFIG6</name>
++			<description>DMA Channel 6 Configuration Register</description>
++			<addressOffset>0x1D0</addressOffset>
++			<access>read-write</access>
++			<resetValue>0</resetValue>
++			<resetMask>0xFFFFFFFF</resetMask>
++			<fields>
++				<field>
++					<name>E</name>
++					<description>Channel enable. Reading this bit indicates whether a channel is currently enabled or disabled: 0 = channel disabled. 1 = channel enabled. The Channel Enable bit status can also be found by reading the DMACEnbldChns Register. A channel is enabled by setting this bit. A channel can be disabled by clearing the Enable bit. This causes the current AHB transfer (if one is in progress) to complete and the channel is then disabled. Any data in the FIFO of the relevant channel is lost. Restarting the channel by setting the Channel Enable bit has unpredictable effects, the channel must be fully re-initialized. The channel is also disabled, and Channel Enable bit cleared, when the last LLI is reached, the DMA transfer is completed, or if a channel error is encountered. If a channel must be disabled without losing data in the FIFO, the Halt bit must be set so that further DMA requests are ignored. The Active bit must then be polled until it reaches 0, indicating that there is no data left in the FIFO. Finally, the Channel Enable bit can be cleared.</description>
++					<bitRange>[0:0]</bitRange>
++				</field>
++				<field>
++					<name>SRCPERIPHERAL</name>
++					<description>Source peripheral. This value selects the DMA source request peripheral. This field is ignored if the source of the transfer is from memory. See Table 672 for peripheral identification.</description>
++					<bitRange>[5:1]</bitRange>
++				</field>
++				<field>
++					<name>DESTPERIPHERAL</name>
++					<description>Destination peripheral. This value selects the DMA destination request peripheral. This field is ignored if the destination of the transfer is to memory. See Table 672 for peripheral identification.</description>
++					<bitRange>[10:6]</bitRange>
++				</field>
++				<field>
++					<name>TRANSFERTYPE</name>
++					<description>This value indicates the type of transfer and specifies the flow controller. The transfer type can be memory-to-memory, memory-to-peripheral, peripheral-to-memory, or peripheral-to-peripheral. Flow can be controlled by the DMA controller, the source peripheral, or the destination peripheral. Refer to Table 694 for the encoding of this field.</description>
++					<bitRange>[13:11]</bitRange>
++				</field>
++				<field>
++					<name>IE</name>
++					<description>Interrupt error mask. When cleared, this bit masks out the error interrupt of the relevant channel.</description>
++					<bitRange>[14:14]</bitRange>
++				</field>
++				<field>
++					<name>ITC</name>
++					<description>Terminal count interrupt mask. When cleared, this bit masks out the terminal count interrupt of the relevant channel.</description>
++					<bitRange>[15:15]</bitRange>
++				</field>
++				<field>
++					<name>L</name>
++					<description>Lock. When set, this bit enables locked transfers. This information is not used in the LPC178x/177x.</description>
++					<bitRange>[16:16]</bitRange>
++				</field>
++				<field>
++					<name>A</name>
++					<description>Active: 0 = there is no data in the FIFO of the channel. 1 = the channel FIFO has data. This value can be used with the Halt and Channel Enable bits to cleanly disable a DMA channel. This is a read-only bit.</description>
++					<bitRange>[17:17]</bitRange>
++				</field>
++				<field>
++					<name>H</name>
++					<description>Halt: 0 = enable DMA requests. 1 = ignore further source DMA requests. The contents of the channel FIFO are drained. This value can be used with the Active and Channel Enable bits to cleanly disable a DMA channel.</description>
++					<bitRange>[18:18]</bitRange>
++				</field>
++				<field>
++					<name>RESERVED</name>
++					<description>Reserved. Read value is undefined, only zero should be written.</description>
++					<bitRange>[31:19]</bitRange>
++				</field>
++			</fields>
++		</register>
++		<register>
++			<name>CONFIG7</name>
++			<description>DMA Channel 7 Configuration Register</description>
++			<addressOffset>0x1F0</addressOffset>
++			<access>read-write</access>
++			<resetValue>0</resetValue>
++			<resetMask>0xFFFFFFFF</resetMask>
++			<fields>
++				<field>
++					<name>E</name>
++					<description>Channel enable. Reading this bit indicates whether a channel is currently enabled or disabled: 0 = channel disabled. 1 = channel enabled. The Channel Enable bit status can also be found by reading the DMACEnbldChns Register. A channel is enabled by setting this bit. A channel can be disabled by clearing the Enable bit. This causes the current AHB transfer (if one is in progress) to complete and the channel is then disabled. Any data in the FIFO of the relevant channel is lost. Restarting the channel by setting the Channel Enable bit has unpredictable effects, the channel must be fully re-initialized. The channel is also disabled, and Channel Enable bit cleared, when the last LLI is reached, the DMA transfer is completed, or if a channel error is encountered. If a channel must be disabled without losing data in the FIFO, the Halt bit must be set so that further DMA requests are ignored. The Active bit must then be polled until it reaches 0, indicating that there is no data left in the FIFO. Finally, the Channel Enable bit can be cleared.</description>
++					<bitRange>[0:0]</bitRange>
++				</field>
++				<field>
++					<name>SRCPERIPHERAL</name>
++					<description>Source peripheral. This value selects the DMA source request peripheral. This field is ignored if the source of the transfer is from memory. See Table 672 for peripheral identification.</description>
++					<bitRange>[5:1]</bitRange>
++				</field>
++				<field>
++					<name>DESTPERIPHERAL</name>
++					<description>Destination peripheral. This value selects the DMA destination request peripheral. This field is ignored if the destination of the transfer is to memory. See Table 672 for peripheral identification.</description>
++					<bitRange>[10:6]</bitRange>
++				</field>
++				<field>
++					<name>TRANSFERTYPE</name>
++					<description>This value indicates the type of transfer and specifies the flow controller. The transfer type can be memory-to-memory, memory-to-peripheral, peripheral-to-memory, or peripheral-to-peripheral. Flow can be controlled by the DMA controller, the source peripheral, or the destination peripheral. Refer to Table 694 for the encoding of this field.</description>
++					<bitRange>[13:11]</bitRange>
++				</field>
++				<field>
++					<name>IE</name>
++					<description>Interrupt error mask. When cleared, this bit masks out the error interrupt of the relevant channel.</description>
++					<bitRange>[14:14]</bitRange>
++				</field>
++				<field>
++					<name>ITC</name>
++					<description>Terminal count interrupt mask. When cleared, this bit masks out the terminal count interrupt of the relevant channel.</description>
++					<bitRange>[15:15]</bitRange>
++				</field>
++				<field>
++					<name>L</name>
++					<description>Lock. When set, this bit enables locked transfers. This information is not used in the LPC178x/177x.</description>
++					<bitRange>[16:16]</bitRange>
++				</field>
++				<field>
++					<name>A</name>
++					<description>Active: 0 = there is no data in the FIFO of the channel. 1 = the channel FIFO has data. This value can be used with the Halt and Channel Enable bits to cleanly disable a DMA channel. This is a read-only bit.</description>
++					<bitRange>[17:17]</bitRange>
++				</field>
++				<field>
++					<name>H</name>
++					<description>Halt: 0 = enable DMA requests. 1 = ignore further source DMA requests. The contents of the channel FIFO are drained. This value can be used with the Active and Channel Enable bits to cleanly disable a DMA channel.</description>
++					<bitRange>[18:18]</bitRange>
++				</field>
++				<field>
++					<name>RESERVED</name>
++					<description>Reserved. Read value is undefined, only zero should be written.</description>
++					<bitRange>[31:19]</bitRange>
++				</field>
++			</fields>
++		</register>
+ 	</registers>
+-</peripheral>	
+-		
+-		
+-		
+-		<peripheral>
++</peripheral>
++<peripheral>
+ 	<name>USB</name>
+ 	<description>USB device/host/OTG controller</description>
+ 	<groupName>USB</groupName>
