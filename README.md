@@ -10,9 +10,13 @@ Generated using [svd2rust] v0.4.0 from [LPC176x5x_v0.2.svd].
 
 # Patching the SVD
 
-If you'd like the patched version of the LPC176x_5x_v0.2.svd file, simply
-download it from the link above to the same directory as LPC176x_5x.patch
-and run `patch -p0 < LPC176x_5x.patch`.
+If you'd like the patched version of the `LPC176x_5x_v0.2.svd` file, simply
+download it from the link above to the same directory as `LPC176x_5x.patch`
+and run 
+
+```
+$ patch -p0 < LPC176x_5x.patch
+```
 
 # License
 
