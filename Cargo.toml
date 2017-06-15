@@ -1,12 +1,18 @@
 [package]
-name = "lpc1768"
+name = "lpc176x5x"
 version = "0.1.0"
 authors = ["Nick Mosher <nicholastmosher@gmail.com>"]
+
+[lib]
+name = "lpc176x5x"
+path = "src/lib.rs"
 
 [dependencies]
 cortex-m = "0.2.0"
 vcell = "0.1.0"
 
-[lib]
-name = "lpc1768"
-path = "src/lib.rs"
+[dev-dependencies]
+cortex-m = "0.2.0"
+cortex-m-rt = "0.2.3"
+vcell = "0.1.0"
+
